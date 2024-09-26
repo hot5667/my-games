@@ -1,5 +1,7 @@
+// ChampionCard.tsx (서버 컴포넌트)
 import Image from 'next/image';
 import { Champion } from '../types/types';
+import { getChampionImageUrl } from '../../api/championsApi'; 
 
 interface ChampionCardProps {
   champion: Champion;
@@ -11,7 +13,7 @@ const ChampionCard: React.FC<ChampionCardProps> = ({ champion }) => {
       <div className="card w-full h-full bg-white shadow-lg rounded-lg transition-transform transform hover:rotate-y-180">
         <div className="card__front w-full h-full flex flex-col items-center justify-center backface-hidden">
           <Image
-            src={`https://ddragon.leagueoflegends.com/cdn/14.19.1/img/champion/${champion.image.full}`}
+            src={getChampionImageUrl(champion.image.full)} 
             alt={champion.name}
             width={200}
             height={200}
