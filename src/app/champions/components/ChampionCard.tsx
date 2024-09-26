@@ -1,7 +1,9 @@
-// ChampionCard.tsx (서버 컴포넌트)
+'use client';
+
+import Head from 'next/head';
 import Image from 'next/image';
 import { Champion } from '../types/types';
-import { getChampionImageUrl } from '../../api/championsApi'; 
+import { getChampionImageUrl } from '../../api/championsApi';
 
 interface ChampionCardProps {
   champion: Champion;
@@ -9,25 +11,32 @@ interface ChampionCardProps {
 
 const ChampionCard: React.FC<ChampionCardProps> = ({ champion }) => {
   return (
-    <div className="relative overflow-hidden perspective">
-      <div className="card w-full h-full bg-white shadow-lg rounded-lg transition-transform transform hover:rotate-y-180">
-        <div className="card__front w-full h-full flex flex-col items-center justify-center backface-hidden">
-          <Image
-            src={getChampionImageUrl(champion.image.full)} 
-            alt={champion.name}
-            width={200}
-            height={200}
-            className="mx-auto"
-          />
-          <h2 className="text-lg mt-2 font-semibold">{champion.name}</h2>
-        </div>
-        <div className="card__back w-full h-full flex items-center justify-center backface-hidden transform rotate-y-180">
-          <div className="w-full h-full flex items-center justify-center bg-gray-200 rounded-lg">
-            <p className="text-center">챔피언 정보</p>
+    <>
+      <Head>
+        <title>{champion.name || '챔피언 이름 없음'} - LOL 챔피언</title>
+        <meta name="description" content={`${champion.name || '챔피언 이름 없음'}의 정보 및 특징을 확인하세요.`} />
+      </Head>
+
+      <div className="relative overflow-hidden perspective">
+        <div className="card w-full h-full bg-white shadow-lg rounded-lg transition-transform transform hover:rotate-y-180">
+          <div className="card__front w-full h-full flex flex-col items-center justify-center backface-hidden">
+            <Image
+              src={getChampionImageUrl(champion.image.full)}
+              alt={champion.name}
+              width={200}
+              height={200}
+              className="mx-auto"
+            />
+            <h2 className="text-lg mt-2 font-semibold">{champion.name}</h2>
+          </div>
+          <div className="card__back w-full h-full flex items-center justify-center backface-hidden transform rotate-y-180">
+            <div className="w-full h-full flex items-center justify-center bg-gray-200 rounded-lg">
+              <p className="text-center">챔피언 정보</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
