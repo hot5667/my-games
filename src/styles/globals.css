@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .nav-link {
+    @apply text-white relative;
+  }
+
+  .nav-link-line {
+    @apply block h-0.5 bg-white transition-all duration-300 scale-x-0 group-hover:scale-x-100;
+  }
+}
