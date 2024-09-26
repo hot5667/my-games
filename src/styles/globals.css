@@ -4,7 +4,7 @@
 
 @layer components {
   .nav-link {
-    @apply text-white relative;
+    @apply hidden md:block text-white;
   }
 
   .nav-link-line {

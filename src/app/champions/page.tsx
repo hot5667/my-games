@@ -1,14 +1,13 @@
-// ChampionsPage.tsx
 'use client'
 
 import { useEffect, useState } from 'react';
-import { ChampionsData } from './types/types'; // 타입 임포트
-import ChampionCard from './components/ChampionCard'; // 챔피언 카드 컴포넌트 임포트
+import axios from 'axios';
+import { ChampionsData } from './types/types'; 
+import ChampionCard from './components/ChampionCard'; 
 
 const fetchChampions = async (): Promise<ChampionsData> => {
-  const response = await fetch('https://ddragon.leagueoflegends.com/cdn/14.19.1/data/ko_KR/champion.json');
-  const data = await response.json();
-  return data.data; // 챔피언 데이터 반환
+  const response = await axios.get('https://ddragon.leagueoflegends.com/cdn/14.19.1/data/ko_KR/champion.json');
+  return response.data.data; // 챔피언 데이터 반환
 };
 
 const ChampionsPage: React.FC = () => {
