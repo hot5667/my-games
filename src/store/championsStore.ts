@@ -3,6 +3,8 @@ import axios from 'axios';
 import { ChampionsData } from '../app/champions/types/types';
 import { revalidateTag } from 'next/cache';
 
+const BASE_URL = process.env.NEXT_PUBLIC_RIOT_BASE_URL;
+
 interface ChampionStore {
   champions: ChampionsData;
   isLoading: boolean;
@@ -15,7 +17,7 @@ export const useChampionStore = create<ChampionStore>((set) => ({
   isLoading: true,
   fetchChampions: async () => {
     set({ isLoading: true });
-    const response = await axios.get('https://ddragon.leagueoflegends.com/cdn/14.19.1/data/ko_KR/champion.json');
+    const response = await axios.get(`${BASE_URL}data/ko_KR/champion.json`);
     set({ champions: response.data.data, isLoading: false });
 
     // 데이터 업데이트 후 revalidateTag 호출

@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { ChampionsData } from '../champions/types/types';
 
+const BASE_URL = process.env.NEXT_PUBLIC_RIOT_BASE_URL;
+
 export const fetchChampions = async (): Promise<ChampionsData> => {
-  const response = await axios.get('https://ddragon.leagueoflegends.com/cdn/14.19.1/data/ko_KR/champion.json');
+  const response = await axios.get(`${BASE_URL}/data/ko_KR/champion.json`);
   return response.data.data;
 };
 
 export const getChampionImageUrl = (imageName: string): string => {
-  return `https://ddragon.leagueoflegends.com/cdn/14.19.1/img/champion/${imageName}`;
+  return `${BASE_URL}/img/champion/${imageName}`;
 };

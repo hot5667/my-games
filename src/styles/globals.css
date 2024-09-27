@@ -10,4 +10,82 @@
   .nav-link-line {
     @apply block h-0.5 bg-white transition-all duration-300 scale-x-0 group-hover:scale-x-100;
   }
+
+  .bg-공허 {
+    background-image: url('/backgrund/공허배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-그림자군도 {
+    background-image: url('/backgrund/그림자 군도 배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-녹서스 {
+    background-image: url('/backgrund/넥서스배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-데마시아 {
+    background-image: url('/backgrund/데마시아배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-밴들시티 {
+    background-image: url('/');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-빌지워터 {
+    background-image: url('/backgrund/빌지워터배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-슈리마 {
+    background-image: url('/backgrund/슈라마배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-아이오니아 {
+    background-image: url('/backgrund/아이오니아배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-이쉬탈 {
+    background-image: url('/backgrund/아쉬탈배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-자운 {
+    background-image: url('/backgrund/자운배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-타곤 {
+    background-image: url('/backgrund/타곤배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-프렐요드 {
+    background-image: url('/backgrund/프렐요드배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .bg-필트오버 {
+    background-image: url('/backgrund/필트오버배경.jpg');
+    background-size: cover;
+    background-position: center;
+  }  
 }
