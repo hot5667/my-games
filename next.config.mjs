@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-import withImages from 'next-images';
 
 const nextConfig = {
      images: {
@@ -16,7 +15,8 @@ const nextConfig = {
                     pathname: '/cdn/14.19.1/img/champion/**',
                },
           ],
+          formats: ['image/webp'],
      },
 };
 
-export default withImages(nextConfig);
+export default nextConfig;

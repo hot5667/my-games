@@ -2,6 +2,7 @@ import NavLink from '../components/NavLink';
 import '../styles/globals.css';
 import type { Metadata } from 'next';
 import Providers from "@/utils/provider";
+import { PiBookFill } from "react-icons/pi";
 
 export const metadata: Metadata = {
   title: 'LOL 백과사전',
@@ -12,7 +13,10 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-900 p-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-white text-2xl font-bold">LOL 백과사전</h1>
+        <div className="flex items-center">
+          <PiBookFill className="text-white text-2xl mr-2" /> 
+          <h1 className="text-white text-2xl font-bold">LOL 백과사전</h1>
+        </div>
         <ul className="flex items-center space-x-8">
           <NavLink href="/">홈</NavLink>
           <li className="nav-link">|</li>
@@ -28,7 +32,6 @@ const Navbar = () => {
     </nav>
   );
 };
-
 
 export default function RootLayout({
   children,
