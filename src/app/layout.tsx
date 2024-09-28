@@ -42,7 +42,7 @@ export default function RootLayout({
     <html lang="ko">
       <body>
           <Navbar />
-          <main className="p-4">
+          <main>
             <Providers>{children}</Providers>
           </main>
       </body>

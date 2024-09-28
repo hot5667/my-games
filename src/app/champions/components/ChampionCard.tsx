@@ -2,6 +2,7 @@
 
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Champion } from '../types/types';
 import { getChampionImageUrl } from '../../api/championsApi';
 
@@ -17,7 +18,7 @@ const ChampionCard: React.FC<ChampionCardProps> = ({ champion }) => {
         <meta name="description" content={`${champion.name || '챔피언 이름 없음'}의 정보 및 특징을 확인하세요.`} />
       </Head>
 
-      <div className="relative overflow-hidden perspective">
+      <Link href={`/champions/${champion.id}`} className="w-full h-full">
         <div className="card w-full h-full bg-white shadow-lg rounded-lg transition-transform transform hover:rotate-y-180">
           <div className="card__front w-full h-full flex flex-col items-center justify-center backface-hidden">
             <Image
@@ -29,13 +30,8 @@ const ChampionCard: React.FC<ChampionCardProps> = ({ champion }) => {
             />
             <h2 className="text-lg mt-2 font-semibold">{champion.name}</h2>
           </div>
-          <div className="card__back w-full h-full flex items-center justify-center backface-hidden transform rotate-y-180">
-            <div className="w-full h-full flex items-center justify-center bg-gray-200 rounded-lg">
-              <p className="text-center">챔피언 정보</p>
-            </div>
-          </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };

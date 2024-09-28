@@ -9,7 +9,7 @@ interface ChampionStore {
   champions: ChampionsData;
   isLoading: boolean;
   fetchChampions: () => Promise<void>;
-  setChampions: (champions: ChampionsData) => void; // champions 상태를 설정하는 함수 추가
+  setChampions: (champions: ChampionsData) => void; 
 }
 
 export const useChampionStore = create<ChampionStore>((set) => ({
@@ -23,5 +23,5 @@ export const useChampionStore = create<ChampionStore>((set) => ({
     // 데이터 업데이트 후 revalidateTag 호출
     revalidateTag('champions-data');
   },
-  setChampions: (champions) => set({ champions }), // champions 상태를 설정하는 함수 구현
+  setChampions: (champions) => set({ champions }), 
 }));

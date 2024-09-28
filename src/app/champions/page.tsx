@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { ChampionsData } from './types/types';
 import { fetchChampions } from '../api/championsApi';
 import ChampionsClient from './components/ChampionsClient';
 
@@ -9,8 +8,10 @@ export const metadata: Metadata = {
 };
 
 const ChampionsPage = async () => {
-  // 서버에서 데이터 가져오기
-  const initialChampions: ChampionsData = await fetchChampions();
+  const limit = 16;
+  const page = 1; 
+
+  const { champions: initialChampions, totalPages } = await fetchChampions(page, limit);
 
   return (
     <div className="container mx-auto p-4">
@@ -18,7 +19,9 @@ const ChampionsPage = async () => {
       <p className="text-lg text-gray-600 mb-6">
         140여 명의 챔피언 중 자신의 플레이 스타일에 어울리는 챔피언을 찾아보세요.
       </p>
-      <ChampionsClient initialChampions={initialChampions} />
+
+      {/* initialChampions와 totalPages를 Props로 전달 */}
+      <ChampionsClient initialChampions={initialChampions} totalPages={totalPages} />
     </div>
   );
 };

@@ -78,9 +78,11 @@ const GamehistoryClient: React.FC<GameHistoryPageProps> = ({ factions }) => {
         </div>
       ))}
       {showScrollIcon && (
-        <div className="fixed bottom-5 left-1/2 transform -translate-x-1/2 z-50">
-          <PiMouseScroll className="text-white text-4xl animate-bounce" />
-        </div>
+        <div className="fixed bottom-5 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center">
+        <PiMouseScroll className="text-white text-4xl animate-bounce" />
+        <p className="text-white mt-2 animate-bounce">스크롤하여 더 많은 정보를 확인하세요!</p>
+      </div>
+      
       )}
     </div>
   );
