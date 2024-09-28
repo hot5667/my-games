@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import { fetchChampionDetail } from '../../api/championsApi'; // API 호출 함수
 import { ChampionDetail } from '../types/types'; // 타입 정의
+import BarChart from './components/BarChart'; // BarChart 컴포넌트 import
 
-const BASE_URL = process.env.NEXT_PUBLIC_RIOT_BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_RIOT_DETAILl_URL;
 
 // 메타데이터 설정
 export const generateMetadata = async ({ params }: { params: { id: string } }): Promise<Metadata> => {
@@ -29,37 +29,41 @@ const ChampionDetailPage = async ({ params }: { params: { id: string } }) => {
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-4xl font-bold">{champion.name}</h1>
-      <h2 className="text-2xl italic">{champion.title}</h2>
-      <Image
-        src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg`} // 이미지 URL 변경
-        alt={champion.name} 
-        className="my-4"
-        width={300} 
-        height={300}
-      />
-      <p>{champion.lore}</p>
-      <h3 className="text-xl mt-4">Stats:</h3>
-      <ul>
-        <li>HP: {champion.stats.hp}</li>
-        <li>Attack Damage: {champion.stats.attackdamage}</li>
-        <li>Armor: {champion.stats.armor}</li>
-        <li>Magic Resist: {champion.stats.magicresist}</li>
-        <li>Attack Speed: {champion.stats.attackspeed}</li>
-        <li>Critical Strike Chance: {champion.stats.crit}</li>
-      </ul>
-      <h3 className="text-xl mt-4">Spells:</h3>
-      <ul>
-        {champion.spells.map((spell) => (
-          <li key={spell.id}>
-            <strong>{spell.name}</strong>: {spell.description}
-          </li>
-        ))}
-      </ul>
-      <h3 className="text-xl mt-4">Passive:</h3>
-      <div>
-        <strong>{champion.passive.name}</strong>: {champion.passive.description}
+    <div 
+      className="min-h-screen flex items-center" // 화면 최소 높이를 전체 화면으로 설정
+      style={{
+        backgroundImage: `url(${BASE_URL}/img/champion/splash/${champion.id}_0.jpg)`,
+        backgroundSize: 'cover', // 이미지가 컨테이너를 덮도록 설정
+        backgroundPosition: 'center', // 이미지 위치 설정
+        backgroundRepeat: 'no-repeat', // 이미지 반복 방지
+      }}
+    >
+      <div 
+        className="bg-gradient-to-r from-black to-transparent p-8 rounded-md w-1/3 h-full flex flex-col justify-start" // 왼쪽에서 오른쪽으로 그라데이션 적용
+        style={{ 
+          minHeight: '100vh', 
+        }}
+      >
+        <h1 className="text-4xl font-bold text-white">{champion.name}</h1>
+        <h2 className="text-2xl italic text-white">{champion.title}</h2>
+        <p className="text-white">{champion.lore}</p>
+        <h3 className="text-xl mt-4 text-white">챔피언 스텟</h3>
+        <div className="mt-4">
+          <BarChart championStats={champion.stats} />
+        </div>
+
+        <h3 className="text-xl mt-4 text-white">Spells:</h3>
+        <ul className="text-white">
+          {champion.spells.map((spell) => (
+            <li key={spell.id}>
+              <strong>{spell.name}</strong>: {spell.description}
+            </li>
+          ))}
+        </ul>
+        <h3 className="text-xl mt-4 text-white">Passive:</h3>
+        <div className="text-white">
+          <strong>{champion.passive.name}</strong>: {champion.passive.description}
+        </div>
       </div>
     </div>
   );

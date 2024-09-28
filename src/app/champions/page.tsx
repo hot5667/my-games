@@ -20,7 +20,6 @@ const ChampionsPage = async () => {
         140여 명의 챔피언 중 자신의 플레이 스타일에 어울리는 챔피언을 찾아보세요.
       </p>
 
-      {/* initialChampions와 totalPages를 Props로 전달 */}
       <ChampionsClient initialChampions={initialChampions} totalPages={totalPages} />
     </div>
   );

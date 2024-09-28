@@ -27,8 +27,9 @@ export interface ChampionDetail {
     hp: number;                
     attackdamage: number;      
     armor: number;              
-    magicresist: number;        
-    attackspeed: number;       
+    spellblock: number;        
+    attackspeed: number;
+    movespeed: number;       
     crit: number;               
     [key: string]: number; 
   };

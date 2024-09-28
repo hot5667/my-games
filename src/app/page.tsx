@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const MainPage = () => {
   return (
-    <div className="relative flex items-center justify-center h-screen bg-gradient-to-b from-sky-300 to-white">
+    <div className="relative flex items-center justify-center h-[91vh] bg-gradient-to-b from-sky-300 to-white">
       <MainContent /> 
     </div>
   );
