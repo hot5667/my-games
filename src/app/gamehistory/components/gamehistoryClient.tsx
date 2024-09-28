@@ -53,7 +53,7 @@ const GamehistoryClient: React.FC<GameHistoryPageProps> = ({ factions }) => {
       {factions.map((faction: Faction, index: number) => (
         <div
           key={index}
-          className={`fixed inset-0 flex flex-col transition-opacity duration-700 
+          className={`fixed inset-0 flex flex-col transition-opacity duration-700 z-20
                       ${scrollIndex === index ? 'opacity-100' : 'opacity-0'}`}
           style={{
             backgroundImage: `

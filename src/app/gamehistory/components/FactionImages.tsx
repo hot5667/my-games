@@ -1,16 +1,16 @@
-import voidImage from '../../../public/backgrund/void.jpg';
-import shadowImage from '../../../public/backgrund/Shadow.jpg';
-import noxusImage from '../../../public/backgrund/Noxus.jpg';
-import demaciaImage from '../../../public/backgrund/Demacia.jpg';
-import bandleImage from '../../../public/backgrund/Bandle.jpg';
-import bilgewaterImage from '../../../public/backgrund/Bilgewater.jpg';
-import shurimasImage from '../../../public/backgrund/Shurima.jpg';
-import ioniaImage from '../../../public/backgrund/Ionia.jpg';
-import ixtalImage from '../../../public/backgrund/Ixtal.jpg';
-import zaunImage from '../../../public/backgrund/Zaun.jpg';
-import targonImage from '../../../public/backgrund/Targon.jpg';
-import freljordImage from '../../../public/backgrund/Freljord.jpg';
-import piltoverImage from '../../../public/backgrund/Piltover.jpg';
+import voidImage from '../../../public/background/void.jpg';
+import shadowImage from '../../../public/background/Shadow.jpg';
+import noxusImage from '../../../public/background/Noxus.jpg';
+import demaciaImage from '../../../public/background/Demacia.jpg';
+import bandleImage from '../../../public/background/Bandle.jpg';
+import bilgewaterImage from '../../../public/background/Bilgewater.jpg';
+import shurimasImage from '../../../public/background/Shurima.jpg';
+import ioniaImage from '../../../public/background/Ionia.jpg';
+import ixtalImage from '../../../public/background/Ixtal.jpg';
+import zaunImage from '../../../public/background/Zaun.jpg';
+import targonImage from '../../../public/background/Targon.jpg';
+import freljordImage from '../../../public/background/Freljord.jpg';
+import piltoverImage from '../../../public/background/Piltover.jpg';
 
 const FactionImages = () => {
   return [

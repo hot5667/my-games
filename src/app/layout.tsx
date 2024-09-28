@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-900 p-4 shadow-lg">
+    <nav className="bg-gray-900 p-4 shadow-lg fixed w-full z-10"> {/* fixed와 w-full 추가 */}
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <PiBookFill className="text-white text-2xl mr-2" /> 
@@ -41,10 +41,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-          <Navbar />
-          <main>
-            <Providers>{children}</Providers>
-          </main>
+        <Navbar />
+        <main className="pt-16"> {/* 네비게이션 바 높이만큼 패딩 추가 */}
+          <Providers>{children}</Providers>
+        </main>
       </body>
     </html>
   );

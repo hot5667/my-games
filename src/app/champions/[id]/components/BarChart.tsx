@@ -1,12 +1,12 @@
-"use client"; // 클라이언트 컴포넌트로 설정
+"use client";
 
 import { Radar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
-import ChartDataLabels from 'chartjs-plugin-datalabels'; // 추가된 부분
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 // Chart.js 등록
 Chart.register(...registerables);
-Chart.register(ChartDataLabels); // 데이터 레이블 플러그인 등록
+Chart.register(ChartDataLabels); 
 
 const BarChart = ({ championStats }: { championStats: { hp: number; attackdamage: number; armor: number; spellblock: number; attackspeed: number; movespeed: number } }) => {
   const maxStats = {
@@ -46,7 +46,7 @@ const BarChart = ({ championStats }: { championStats: { hp: number; attackdamage
         beginAtZero: true,
         ticks: {
           stepSize: 50, 
-          callback: (value: number) => `${value}`, // 값에 % 표시 제거
+          callback: (value: number) => `${value}`,
         },
       },
     },

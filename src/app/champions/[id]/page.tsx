@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { fetchChampionDetail } from '../../api/championsApi'; // API 호출 함수
 import { ChampionDetail } from '../types/types'; // 타입 정의
 import BarChart from './components/BarChart'; // BarChart 컴포넌트 import
+import ChampionStats from './components/ChampionStats'; // ChampionStats 컴포넌트 import
 
 const BASE_URL = process.env.NEXT_PUBLIC_RIOT_DETAILl_URL;
 
@@ -30,39 +31,31 @@ const ChampionDetailPage = async ({ params }: { params: { id: string } }) => {
 
   return (
     <div 
-      className="min-h-screen flex items-center" // 화면 최소 높이를 전체 화면으로 설정
+      className="min-h-[150vh] flex flex-col transition-opacity duration-700" 
       style={{
-        backgroundImage: `url(${BASE_URL}/img/champion/splash/${champion.id}_0.jpg)`,
+        backgroundImage: `
+          linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+          url(${BASE_URL}/img/champion/splash/${champion.id}_0.jpg)
+        `,
         backgroundSize: 'cover', // 이미지가 컨테이너를 덮도록 설정
         backgroundPosition: 'center', // 이미지 위치 설정
         backgroundRepeat: 'no-repeat', // 이미지 반복 방지
+        backgroundAttachment: 'fixed', // 배경 이미지 고정
       }}
     >
-      <div 
-        className="bg-gradient-to-r from-black to-transparent p-8 rounded-md w-1/3 h-full flex flex-col justify-start" // 왼쪽에서 오른쪽으로 그라데이션 적용
-        style={{ 
-          minHeight: '100vh', 
-        }}
-      >
-        <h1 className="text-4xl font-bold text-white">{champion.name}</h1>
-        <h2 className="text-2xl italic text-white">{champion.title}</h2>
-        <p className="text-white">{champion.lore}</p>
-        <h3 className="text-xl mt-4 text-white">챔피언 스텟</h3>
-        <div className="mt-4">
-          <BarChart championStats={champion.stats} />
-        </div>
+      <div className=" w-full h-full overflow-auto">
+        <div 
+          className="fixed bg-gradient-to-r  p-8 w-1/3 h-full flex flex-col justify-start" 
+          style={{ 
+            minHeight: '100vh', 
+          }}
+        >
+          <h1 className="text-4xl font-bold text-white">{champion.name}</h1>
+          <h2 className="text-2xl italic text-white">{champion.title}</h2>
+          <p className="text-white">{champion.lore}</p>
 
-        <h3 className="text-xl mt-4 text-white">Spells:</h3>
-        <ul className="text-white">
-          {champion.spells.map((spell) => (
-            <li key={spell.id}>
-              <strong>{spell.name}</strong>: {spell.description}
-            </li>
-          ))}
-        </ul>
-        <h3 className="text-xl mt-4 text-white">Passive:</h3>
-        <div className="text-white">
-          <strong>{champion.passive.name}</strong>: {champion.passive.description}
+          {/* 챔피언 스텟과 스킬 정보 컴포넌트 */}
+          <ChampionStats champion={champion} />
         </div>
       </div>
     </div>
