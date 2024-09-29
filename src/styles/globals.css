@@ -33,4 +33,10 @@
   .nav-link-line {
     @apply block h-0.5 bg-white transition-all duration-300 scale-x-0 group-hover:scale-x-100;
   }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* 최대 두 줄 */
+  }
 }

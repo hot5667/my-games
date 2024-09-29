@@ -54,7 +54,6 @@ const ChampionDetailPage = async ({ params }: { params: { id: string } }) => {
           <h2 className="text-2xl italic text-white">{champion.title}</h2>
           <p className="text-white">{champion.lore}</p>
 
-          {/* 챔피언 스텟과 스킬 정보 컴포넌트 */}
           <ChampionStats champion={champion} />
         </div>
       </div>

@@ -20,7 +20,6 @@ const ChampionList = () => {
     setCurrentPage(prevPage => Math.max(prevPage - 1, 1));
   };
 
-  // 에러가 발생한 경우 처리
   if (error) {
     return <p>Error: {error}</p>;
   }
