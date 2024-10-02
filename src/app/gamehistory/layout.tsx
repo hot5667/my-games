@@ -1,12 +1,15 @@
-// src/components/Layout.tsx
 import SidebarToggle from './components/sidebar/SidebarToggle';
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+function Layout({ children }: LayoutProps) {
   return (
     <SidebarToggle>
       {children}
     </SidebarToggle>
   );
-};
+}
 
 export default Layout;
