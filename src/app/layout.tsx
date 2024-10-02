@@ -1,7 +1,7 @@
 import NavLink from '../components/NavLink';
 import '../styles/globals.css';
 import type { Metadata } from 'next';
-import Providers from "@/utils/provider";
+import Providers from "@/lib/provider";
 import { PiBookFill } from "react-icons/pi";
 
 export const metadata: Metadata = {
