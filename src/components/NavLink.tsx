@@ -6,7 +6,7 @@ interface NavLinkProps {
      children: React.ReactNode;
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
+const NavLink = ({ href, children }: NavLinkProps) => {
      return (
           <li>
                <Link href={href} className="nav-link group">

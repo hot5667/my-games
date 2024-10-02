@@ -10,7 +10,7 @@ interface ChampionCardProps {
   champion: Champion;
 }
 
-const ChampionCard: React.FC<ChampionCardProps> = ({ champion }) => {
+const ChampionCard = ({ champion }: ChampionCardProps) => {
   return (
     <>
       <Head>
