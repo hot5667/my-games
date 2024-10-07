@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Champion } from '../types/types';
-import { getChampionImageUrl } from '../../api/championsApi';
+import { getChampionImageUrl } from '../../services/championsApi';
 
 interface ChampionCardProps {
   champion: Champion;

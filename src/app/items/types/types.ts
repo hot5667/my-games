@@ -10,3 +10,11 @@ export interface Item {
     total: number;
   };
 }
+
+export interface ItemsResponse {
+  type: string;
+  version: string;
+  data: {
+    [key: string]: Item;
+  };
+}

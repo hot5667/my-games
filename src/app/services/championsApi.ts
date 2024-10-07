@@ -25,7 +25,7 @@ export const fetchChampions = async (page: number, limit: number): Promise<{
 }> => {
   try {
     const response = await championApi.get<ChampionsResponse>('/champion.json');
-    const allChampions: ChampionsData[] = Object.values(response.data.data) as ChampionsData[];
+    const allChampions = Object.values(response.data.data) as unknown as ChampionsData[];
 
     // 페이징 처리
     const startIndex = (page - 1) * limit;

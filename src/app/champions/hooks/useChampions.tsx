@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Champion } from '../types/types';
-import { fetchChampions as fetchChampionsFromApi } from '../../api/championsApi';
+import { fetchChampions as fetchChampionsFromApi } from '../../services/championsApi';
 
 const ONE_DAY = 24 * 60 * 60 * 1000; 
 
