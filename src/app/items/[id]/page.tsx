@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Item } from '../types/types';
-import ItemDetail from '../_components/ItemDetail';
+import ItemDetail from '../components/ItemDetail';
 
 async function getItem(id: string): Promise<Item> {
   const res = await axios.get('https://ddragon.leagueoflegends.com/cdn/14.19.1/data/ko_KR/item.json');

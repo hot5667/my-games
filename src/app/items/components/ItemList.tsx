@@ -14,7 +14,7 @@ interface ItemListProps {
   items: Record<string, Item>;
 }
 
-const ItemList: React.FC<ItemListProps> = ({ items }) => {
+function ItemList({ items }: ItemListProps) {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-4xl font-bold mb-6 text-center">League of Legends Items</h1>
@@ -39,6 +39,6 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
       </div>
     </div>
   );
-};
+}
 
 export default ItemList;

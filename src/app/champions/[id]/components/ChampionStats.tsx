@@ -35,15 +35,14 @@ const ChampionStats = ({ champion }: { champion: ChampionDetail }) => {
     };
   }, []);
 
-  // 마지막 섹션 확인
   useEffect(() => {
     if (!showStats) {
-      setShowScrollIcon(true); // 마지막 섹션에 도달하면 아이콘을 즉시 표시
+      setShowScrollIcon(true); 
     }
   }, [showStats]);
 
   return (
-    <div className="min-h-screen pt-20"> {/* 여유 공간 생성 */}
+    <div className="min-h-screen pt-20"> 
 
       {/* 스텟 정보 섹션 */}
       {showStats ? (
