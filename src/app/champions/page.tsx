@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { fetchChampions } from '../services/championsApi';
+import { fetchChampions } from '../../services/championsApi';
 import ChampionsClient from './components/ChampionsClient';
 
 export const metadata: Metadata = {

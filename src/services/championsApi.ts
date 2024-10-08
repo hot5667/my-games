@@ -1,5 +1,6 @@
+// /services/championService.ts
 import axios, { AxiosInstance } from 'axios';
-import { ChampionsData, ChampionsResponse, ChampionDetail } from '../champions/types/types';
+import { ChampionsData, ChampionsResponse, ChampionDetail } from '../app/champions/types/types';
 
 const BASE_URL = process.env.NEXT_PUBLIC_RIOT_BASE_URL;
 
@@ -51,12 +52,27 @@ export const fetchChampionDetail = async (championId: string): Promise<ChampionD
     const response = await championApi.get<{ data: { [key: string]: ChampionDetail } }>(
       `/champion/${championId}.json`
     );
-    
+
     const championDetail = response.data.data[championId];
-    return championDetail; 
+    return championDetail || null;
   } catch (error) {
     console.error(`챔피언 상세 정보를 가져오는 중 오류가 발생했습니다 (ID: ${championId}):`, error);
     return null;
+  }
+};
+
+// 로테이션 챔피언 목록 페칭 함수
+export const fetchRotationChampions = async (): Promise<string[]> => {
+  try {
+    const response = await axios.get('https://kr.api.riotgames.com/lol/platform/v3/champion-rotations', {
+      headers: {
+        'X-Riot-Token': process.env.NEXT_PUBLIC_RIOT_API_KEY,
+      },
+    });
+    return response.data.freeChampionIds; // 로테이션 챔피언 ID 배열 반환
+  } catch (error) {
+    console.error("로테이션 챔피언을 가져오는 중 오류가 발생했습니다:", error);
+    return [];
   }
 };
 

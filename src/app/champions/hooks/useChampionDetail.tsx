@@ -1,7 +1,7 @@
 'use Client'
 
 import { useState, useEffect } from 'react';
-import { fetchChampionDetail } from '../../services/championsApi';
+import { fetchChampionDetail } from '../../../services/championsApi';
 import { ChampionDetail } from '../types/types';
 
 const useChampionDetail = (championId: string) => {

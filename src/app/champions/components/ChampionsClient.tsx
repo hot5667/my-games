@@ -31,7 +31,7 @@ const ChampionList: React.FC<ChampionListProps> = ({ initialChampions, initialTo
 
   // 에러가 발생한 경우 처리
   if (error) {
-    return <p className="text-red-500">Error: {error.message || 'Something went wrong!'}</p>;
+    return <p className="text-red-500">Error: {error.message || '문제가 발생했습니다.'}</p>;
   }
 
   return (

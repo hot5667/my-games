@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import type { Metadata } from 'next';
 import Providers from "@/lib/provider";
 import { PiBookFill } from "react-icons/pi";
+import { fetchChampions } from "@/services/championsApi"; // API 호출 함수
 
 export const metadata: Metadata = {
   title: 'LOL 백과사전',
@@ -11,10 +12,10 @@ export const metadata: Metadata = {
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-900 p-4 shadow-lg fixed w-full z-10"> {/* fixed와 w-full 추가 */}
+    <nav className="bg-gray-900 p-4 shadow-lg fixed w-full z-10">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <PiBookFill className="text-white text-2xl mr-2" /> 
+          <PiBookFill className="text-white text-2xl mr-2" />
           <h1 className="text-white text-2xl font-bold">LOL 백과사전</h1>
         </div>
         <ul className="flex items-center space-x-8">
@@ -33,17 +34,30 @@ const Navbar = () => {
   );
 };
 
-export default function RootLayout({
+// ISR을 위한 데이터 fetching
+const getInitialData = async () => {
+  try {
+    const { champions } = await fetchChampions(1, 16); // 예시로 첫 페이지 챔피언 가져오기
+    return champions;
+  } catch (error) {
+    console.error("챔피언 데이터를 가져오는 데 오류가 발생했습니다.", error);
+    return [];
+  }
+};
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const initialChampions = await getInitialData(); // 데이터 fetching
+
   return (
     <html lang="ko">
       <body>
         <Navbar />
-        <main className="pt-16"> {/* 네비게이션 바 높이만큼 패딩 추가 */}
-          <Providers>{children}</Providers>
+        <main className="pt-16">
+          <Providers initialChampions={initialChampions}>{children}</Providers>
         </main>
       </body>
     </html>

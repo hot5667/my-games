@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { fetchChampionDetail } from '../../services/championsApi'; // API 호출 함수
+import { fetchChampionDetail } from '../../../services/championsApi'; // API 호출 함수
 import { ChampionDetail } from '../types/types'; // 타입 정의
 import ChampionStats from './components/ChampionStats'; // ChampionStats 컴포넌트 import
 
